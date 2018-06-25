@@ -26,7 +26,7 @@ void *myroute(void *arg)
             clock_gettime(CLOCK_REALTIME,&ts);//取出当前时间放入结构体
             ts.tv_sec += 2;//绝对时间加两秒
             int r = condition_timedwait(&mypool->cond,&ts);//线程出错时返回值体现
-            if(r = ETIMEDOUT) //出错
+            if(r == ETIMEDOUT) //出错
             {           
                 timeout = 1;
                 break;
